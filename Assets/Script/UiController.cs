@@ -8,7 +8,7 @@ public class UiController : MonoBehaviour
 
     public Image powerImage;
     public Image angleImage;
-    public Image angleValue;
+    public GameObject angleValue;
     public float strenght;
     public float angle;
 
@@ -25,7 +25,7 @@ public class UiController : MonoBehaviour
 
         if (n == 1)
         {
-            angleValue.gameObject.GetComponent<RectTransform>().eulerAngles =new Vector3(0,0,ProportionalValue(angle, 90));
+            angleValue.transform.eulerAngles =new Vector3(0,0,ProportionalValue(angle, 90));
             angle = Mathf.PingPong(Time.time, 1);
         }
 
