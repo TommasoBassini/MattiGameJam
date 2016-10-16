@@ -23,7 +23,7 @@ public class Player : MonoBehaviour {
         playerVisual = FindObjectOfType<PlayerVisual>();
 	}
 
-    void OnCollision2DExit(Collision2D other)
+    void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject == rampRef)
         {
@@ -32,8 +32,12 @@ public class Player : MonoBehaviour {
     }
 
     void OnCollisionStay2D(Collision2D col)
-    {        
-        ContactPoint2D contact = col.contacts[0];
-        playerVisual.AlwaysDritto(Quaternion.FromToRotation(Vector3.up, contact.normal));
+    {
+        if (col.gameObject == rampRef)
+        {
+            ContactPoint2D contact = col.contacts[0];
+            playerVisual.AlwaysDritto(Quaternion.FromToRotation(Vector3.up, contact.normal));
+        }
+
     }
 }

@@ -22,6 +22,11 @@ public class PlayerVisual : MonoBehaviour {
             findNormalHit = Physics2D.Raycast(transform.position, -transform.up);
             this.transform.rotation = Quaternion.FromToRotation(Vector3.up, findNormalHit.normal);
         }
+        else
+        {
+            Debug.Log("left");
+            this.transform.rotation = playerRef.transform.rotation;
+        }
     }
 
     public void AlwaysDritto(Quaternion quat)

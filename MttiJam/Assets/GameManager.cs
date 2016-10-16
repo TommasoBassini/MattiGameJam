@@ -15,9 +15,8 @@ public class GameManager : MonoBehaviour {
     {
         gameState = "setRamp";
     }
-    void SetRampState(float value)
+    void SetRampState()
     {
-        playerRef.rampAngle = value;
         gameState = "setPower";
     }
     void SetPowerState(float value)
@@ -34,7 +33,7 @@ public class GameManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             WaitState();
-            SetRampState(0.8f);
+            SetRampState();
             SetPowerState(0.5f);
             StartState();
         }
